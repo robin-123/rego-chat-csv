@@ -1,0 +1,41 @@
+<p>Your query is not clear. Please select the MO Type and/or Checking Attribute:</p>
+<form id="clarify-form">
+    <div class="form-group">
+        <label for="mo_type">MO Type:</label>
+        <select class="form-control" id="mo_type" name="mo_type">
+            <option value="">-- Select --</option>
+            {% for mo in mo_types %}
+                <option value="{{ mo }}">{{ mo }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="checking_attribute">Checking Attribute:</label>
+        <select class="form-control" id="checking_attribute" name="checking_attribute">
+            <option value="">-- Select --</option>
+            {% for attr in checking_attributes %}
+                <option value="{{ attr }}">{{ attr }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button id="clarify-submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+    $(document).ready(function() {
+        $('#clarify-submit').click(function(e) {
+            e.preventDefault();
+            var mo_type = $('#mo_type').val();
+            var checking_attribute = $('#checking_attribute').val();
+            $.ajax({
+                url: '/generate_rego', // This URL will be implemented in Flask
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ mo_type: mo_type, checking_attribute: checking_attribute }),
+                success: function(response) {
+                    $('#result').html(response.html);
+                }
+            });
+        });
+    });
+</script>
