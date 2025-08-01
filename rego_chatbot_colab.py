@@ -2,19 +2,21 @@
 # 1. Run the following commands in a Colab cell to install necessary libraries:
 #    !pip install langchain-experimental langchain-groq groq pandas
 # 2. Upload your 'master.csv' file to the Colab environment (e.g., by dragging it to the file explorer on the left).
-# 3. Enter your GROQ_API_KEY when prompted.
+# 3. Store your GROQ_API_KEY in Colab Secrets:
+#    - Go to the left sidebar in Colab, click on the 'Secrets' (key) icon.
+#    - Add a new secret with the name 'GROQ_API_KEY' and your actual API key as the value.
+#    - Make sure to enable 'Notebook access' for this secret.
 
 import os
 from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain_groq import ChatGroq
 
-# Prompt for GROQ_API_KEY
-groq_api_key = input("Please enter your GROQ_API_KEY: ")
-os.environ["GROQ_API_KEY"] = groq_api_key
+# Access GROQ_API_KEY from Colab Secrets (environment variables)
+groq_api_key = os.getenv("GROQ_API_KEY")
 
 if not groq_api_key:
-    print("Error: GROQ_API_KEY not provided. Please set it.")
+    print("Error: GROQ_API_KEY not found in Colab Secrets. Please set it as instructed.")
     exit()
 
 # Load the CSV file directly
@@ -53,3 +55,4 @@ while True:
     except Exception as e:
         print(f"Error: {e}")
         print("Please try rephrasing your question.")
+")
