@@ -101,7 +101,7 @@ csv_agent_executor = create_pandas_dataframe_agent(
 # Wrap the pandas agent's run method as a Tool
 csv_query_tool = Tool(
     name="CSVQueryTool",
-    func=csv_agent_executor.run,
+    func=lambda query: csv_agent_executor.invoke({"input": query}),
     description="Useful for answering questions about the data in master.csv. Input should be a natural language question about the CSV data."
 )
 
@@ -133,7 +133,7 @@ while True:
         break
 
     try:
-        response = agent.run(user_input)
+        response = agent.invoke({"input": user_input})["output"]
         print(f"Bot: {response}")
     except Exception as e:
         print(f"Error: {e}")
