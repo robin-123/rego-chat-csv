@@ -28,7 +28,7 @@ llm = ChatGroq(temperature=0, model_name="llama3-70b-8192", groq_api_key=groq_ap
 agent = create_csv_agent(
     llm,
     file_path,
-    verbose=True,
+    verbose=False,
     agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     allow_dangerous_code=True,
     handle_parsing_errors=True,
