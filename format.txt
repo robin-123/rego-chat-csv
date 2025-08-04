@@ -1,0 +1,8 @@
+package slice.{vendor}
+default allow = false
+
+allow {{
+   input.vendor == "{vendor}"
+   input.MO_Type == "{mo_type}"
+   input.{checking_attribute} {rego_operator} {formatted_value}
+}}
