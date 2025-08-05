@@ -1,0 +1,121 @@
+UserPrompt: “Generate a rego policy for capacity check considering cellTotalResourceUsageUl and cellTotalResourceUsageDl parameters”
+
+ 
+
+CapacityCheck
+
+ 
+
+package slice.capacitycheck
+
+ 
+
+default deny_message = ""
+
+default allow = false
+
+ 
+
+# Deny if UL or DL usage is over 30
+
+allow if not over_usage
+
+ 
+
+deny_message = "{\"upload\": 30, \"download\": 30}" if {
+
+    over_usage
+
+}
+
+ 
+
+# Internal rule to check UL or DL limits
+
+over_usage if {
+
+    ul := input.sliceData.sliceOrder.cells.cellTotalResourceUsageUl
+
+    ul > 30
+
+} else if {
+
+    dl := input.sliceData.sliceOrder.cells.cellTotalResourceUsageDl
+
+    dl > 30
+
+}
+
+ 
+
+UserPrompt: Generate a rego policy for slice ran template considering vendorname, swversion and operation parameters
+
+ 
+
+ 
+
+Rantemplate.rego
+
+package slice.rantemplate
+ 
+default allow = false
+default response = ""
+ 
+allow if response != ""
+ 
+# Rule for activate-slice
+response = "Ericsson_2024_Q1%2Factivation%2FBaseTemplate.jinja?ref=main" if {
+    input.sliceData.node.actual.vendorName == "Ericsson"
+    input.sliceData.node.actual.swVersion == "24.Q1"
+    input.sliceData.sliceOrder.operation == "activate-slice"
+}
+ 
+response = "Ericsson_2024_Q3%2Factivation%2FBaseTemplate.jinja?ref=main" if {
+    input.sliceData.node.actual.vendorName == "Ericsson"
+    input.sliceData.node.actual.swVersion == "24.Q3"
+    input.sliceData.sliceOrder.operation == "activate-slice"
+}
+ 
+# Rule for terminate-slice
+response = "Ericsson_2024_Q1%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main" if {
+    input.sliceData.node.actual.vendorName == "Ericsson"
+    input.sliceData.node.actual.swVersion == "24.Q1"
+    input.sliceData.sliceOrder.operation == "terminate-slice"
+}
+ 
+response = "Ericsson_2024_Q3%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main" if {
+    input.sliceData.node.actual.vendorName == "Ericsson"
+    input.sliceData.node.actual.swVersion == "24.Q3"
+    input.sliceData.sliceOrder.operation == "terminate-slice"
+}
+ 
+Sfc.rego
+ 
+UserPrompt: Generate a rego policy for checking if slice is feasible based on minimum percentage of cells available
+
+Chatbot: Please let me know what percentage threshold I should consider
+
+UserPrompt: 40
+
+Chatbot: Please find the rego code generated
+
+UserPrompt: Can you add check for dlvolthreshold also in this policy ?
+
+UserPrompt: Pls change the reason when the allow is false “No feasibility “
+
+ 
+package slice.policy
+ 
+default allow = false
+default reason = "Number of feasible cells not more than or equal to minimum number set by policy for slicing"
+ 
+allow if {
+    feasible := input.feasibleCellsForSlice
+    total := input.totalCellsForSlice
+    total > 0  # Prevent division by zero
+    percentage := (feasible / total) * 100
+    percentage >= 50 
+        dlvolthreshold > = 40
+}
+ 
+reason = "Slice is feasible since minimum percentage of cells is available" if allow  
