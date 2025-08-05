@@ -1,0 +1,4 @@
+pandas
+faiss-cpu
+sentence-transformers
+openpyxl

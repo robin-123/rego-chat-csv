@@ -1,0 +1,171 @@
+[
+  {
+    "text": "Capacity Check UL Check the capacity for Uplink cells sliceData.sliceOrder cellTotalResourceUsageUl GREATER THAN 30 \"{\\\"upload\\\": 30, \\\"download\\\": 30}\" ",
+    "metadata": {
+      "Use Case ": "Capacity Check UL",
+      "Description": "Check the capacity for Uplink",
+      "MO Type": "cells",
+      "Full Path": "sliceData.sliceOrder",
+      "Attribute ": "cellTotalResourceUsageUl",
+      "Operation": "GREATER THAN",
+      "Value": "30",
+      "Response": "\"{\\\"upload\\\": 30, \\\"download\\\": 30}\" "
+    }
+  },
+  {
+    "text": "Capacity Check DL Check the capacity for Downlink cells sliceData.sliceOrder cellTotalResourceUsageDl GREATER THAN 30 \"{\\\"upload\\\": 30, \\\"download\\\": 30}\" ",
+    "metadata": {
+      "Use Case ": "Capacity Check DL",
+      "Description": "Check the capacity for Downlink",
+      "MO Type": "cells",
+      "Full Path": "sliceData.sliceOrder",
+      "Attribute ": "cellTotalResourceUsageDl",
+      "Operation": "GREATER THAN",
+      "Value": "30",
+      "Response": "\"{\\\"upload\\\": 30, \\\"download\\\": 30}\" "
+    }
+  },
+  {
+    "text": "Activate Slice RAN Template for Activate Slice node sliceData.node vendorName  EQUALS Ericsson Ericsson_2024_Q1%2Factivation%2FBaseTemplate.jinja?ref=main",
+    "metadata": {
+      "Use Case ": "Activate Slice",
+      "Description": "RAN Template for Activate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "vendorName ",
+      "Operation": "EQUALS",
+      "Value": "Ericsson",
+      "Response": "Ericsson_2024_Q1%2Factivation%2FBaseTemplate.jinja?ref=main"
+    }
+  },
+  {
+    "text": "Activate Slice RAN Template for Activate Slice node sliceData.node swVersion  EQUALS 24.Q1 Ericsson_2024_Q1%2Factivation%2FBaseTemplate.jinja?ref=main",
+    "metadata": {
+      "Use Case ": "Activate Slice",
+      "Description": "RAN Template for Activate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "swVersion ",
+      "Operation": "EQUALS",
+      "Value": "24.Q1",
+      "Response": "Ericsson_2024_Q1%2Factivation%2FBaseTemplate.jinja?ref=main"
+    }
+  },
+  {
+    "text": "Activate Slice RAN Template for Activate Slice node sliceData.node operation  EQUALS \"activate-slice\" Ericsson_2024_Q1%2Factivation%2FBaseTemplate.jinja?ref=main",
+    "metadata": {
+      "Use Case ": "Activate Slice",
+      "Description": "RAN Template for Activate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "operation ",
+      "Operation": "EQUALS",
+      "Value": "\"activate-slice\"",
+      "Response": "Ericsson_2024_Q1%2Factivation%2FBaseTemplate.jinja?ref=main"
+    }
+  },
+  {
+    "text": "Activate Slice RAN Template for Activate Slice node sliceData.node vendorName  EQUALS Ericsson \"Ericsson_2024_Q3%2Factivation%2FBaseTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Activate Slice",
+      "Description": "RAN Template for Activate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "vendorName ",
+      "Operation": "EQUALS",
+      "Value": "Ericsson",
+      "Response": "\"Ericsson_2024_Q3%2Factivation%2FBaseTemplate.jinja?ref=main\" "
+    }
+  },
+  {
+    "text": "Activate Slice RAN Template for Activate Slice node sliceData.node swVersion  EQUALS 24.Q3 \"Ericsson_2024_Q3%2Factivation%2FBaseTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Activate Slice",
+      "Description": "RAN Template for Activate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "swVersion ",
+      "Operation": "EQUALS",
+      "Value": "24.Q3",
+      "Response": "\"Ericsson_2024_Q3%2Factivation%2FBaseTemplate.jinja?ref=main\" "
+    }
+  },
+  {
+    "text": "Terminate Slice RAN Template for Terminate Slice node sliceData.node operation  EQUALS \"terminate-slice\" \"Ericsson_2024_Q1%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Terminate Slice",
+      "Description": "RAN Template for Terminate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "operation ",
+      "Operation": "EQUALS",
+      "Value": "\"terminate-slice\"",
+      "Response": "\"Ericsson_2024_Q1%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" "
+    }
+  },
+  {
+    "text": "Terminate Slice RAN Template for Terminate Slice node sliceData.node vendorName  EQUALS Ericsson \"Ericsson_2024_Q1%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Terminate Slice",
+      "Description": "RAN Template for Terminate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "vendorName ",
+      "Operation": "EQUALS",
+      "Value": "Ericsson",
+      "Response": "\"Ericsson_2024_Q1%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" "
+    }
+  },
+  {
+    "text": "Terminate Slice RAN Template for Terminate Slice node sliceData.node swVersion  EQUALS 24.Q1 \"Ericsson_2024_Q1%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Terminate Slice",
+      "Description": "RAN Template for Terminate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "swVersion ",
+      "Operation": "EQUALS",
+      "Value": "24.Q1",
+      "Response": "\"Ericsson_2024_Q1%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" "
+    }
+  },
+  {
+    "text": "Terminate Slice RAN Template for Terminate Slice node sliceData.node operation  EQUALS \"terminate-slice\" \"Ericsson_2024_Q3%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Terminate Slice",
+      "Description": "RAN Template for Terminate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "operation ",
+      "Operation": "EQUALS",
+      "Value": "\"terminate-slice\"",
+      "Response": "\"Ericsson_2024_Q3%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" "
+    }
+  },
+  {
+    "text": "Terminate Slice RAN Template for Terminate Slice node sliceData.node vendorName  EQUALS Ericsson \"Ericsson_2024_Q3%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Terminate Slice",
+      "Description": "RAN Template for Terminate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "vendorName ",
+      "Operation": "EQUALS",
+      "Value": "Ericsson",
+      "Response": "\"Ericsson_2024_Q3%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" "
+    }
+  },
+  {
+    "text": "Terminate Slice RAN Template for Terminate Slice node sliceData.node swVersion  EQUALS 24.Q3 \"Ericsson_2024_Q3%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" ",
+    "metadata": {
+      "Use Case ": "Terminate Slice",
+      "Description": "RAN Template for Terminate Slice",
+      "MO Type": "node",
+      "Full Path": "sliceData.node",
+      "Attribute ": "swVersion ",
+      "Operation": "EQUALS",
+      "Value": "24.Q3",
+      "Response": "\"Ericsson_2024_Q3%2Ftermination%2FSliceTerminationTemplate.jinja?ref=main\" "
+    }
+  }
+]
